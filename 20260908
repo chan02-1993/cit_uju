@@ -1,0 +1,113 @@
+"study_time = [1, 2, 2, 3, 4, 4, 5, 6, 6, 7]
+score = [45, 50, 55, 60, 68, 72, 78, 85, 88, 95]
+
+plt.scatter(study_time, score)
+plt.title(""Study Time vs Score"")
+plt.xlabel(""Study Time"")
+plt.ylabel(""Score"")
+plt.grid()
+plt.savefig(""study_score.png"")
+plt.show()"
+"days = [1, 2, 3, 4, 5, 6, 7]
+temperature = [20, 22, 21, 24, 27, 26, 23]
+
+plt.plot(days, temperature, marker='o')
+plt.title(""Weekly Temperature"")
+plt.xlabel(""Day"")
+plt.ylabel(""Temperature"")
+plt.grid()
+plt.xlim(0, 8)
+plt.ylim(15, 30)
+
+plt.show()"
+"subjects = [""Math"", ""English"", ""Science"", ""History""]
+scores = [85, 72, 90, 68]
+
+plt.subplot(1, 2, 1)
+plt.bar(subjects, scores)
+
+plt.subplot(1, 2, 2)
+plt.pie(scores, labels=subjects)
+
+plt.show()"
+"x = [1, 2, 3, 4, 5]
+y = [10, 20, 15, 30, 25]
+
+plt.subplot(2, 1, 1)
+plt.plot(x, y)
+plt.title('1')
+plt.subplot(2, 1, 2)
+plt.bar(x, y)
+plt.title('2')
+plt.tight_layout()
+
+plt.show()"
+"labels = ["""", ""Java"", ""C++"", ""JavaScript""]
+values = [40, 25, 20, 15]
+
+plt.pie(values, labels=labels)
+plt.show()"
+"scores = np.random.randint(0, 101, 100)
+plt.hist(scores)
+plt.xlabel(""Score"")
+plt.ylabel(""Count"")
+plt.show()"
+"height = [160, 165, 170, 175, 180, 185]
+weight = [55, 60, 65, 70, 75, 82]
+
+plt.scatter(height, weight)
+plt.show()
+
+키와 몸무게는 정비례하다"
+"study_time = [1, 2, 2, 3, 3, 4, 5, 5, 6]
+score = [50, 55, 60, 65, 70, 72, 80, 85, 90]
+
+plt.scatter(study_time, score)
+plt.xlabel('Study Time')
+plt.ylabel('Score')
+plt.show()"
+"subjects = [""A"", ""B"", ""C"", ""D"", ""E""]
+scores = [65, 80, 95, 72, 88]
+
+plt.bar(subjects, scores)
+plt.ylim(0, 100)
+plt.show()"
+"subjects = [""Math"", ""English"", ""Science"", ""History""]
+
+class_A = [85, 78, 92, 70]
+class_B = [80, 84, 88, 76]
+
+plt.plot(subjects, class_A, label=""class_A"")
+plt.plot(subjects, class_B, label=""class_B"")
+plt.legend()
+plt.show()"
+"subjects = ["""", ""Java"", ""C++"", ""JavaScript""]
+students = [35, 20, 15, 30]
+plt.barh(subjects, students)
+plt.title(""Programming Language"")
+plt.show()"
+"subjects = [""Math"", ""English"", ""Science"", ""History""]
+scores = [85, 72, 90, 68]
+
+plt.bar(subjects, scores)
+plt.title(""Test Scores"")
+plt.show()"
+"x = [1, 2, 3, 4, 5]
+high = [28, 30, 29, 31, 32]
+low = [20, 21, 19, 22, 23]
+
+plt.plot(x, high, label='High')
+plt.plot(x, low, label='Low')
+plt.legend()
+plt.show()"
+"x = [1, 2, 3, 4, 5]
+y = [100, 120, 110, 140, 130]
+
+plt.grid()
+plt.plot(x, y)
+plt.show()"
+"x = [1, 2, 3, 4, 5]
+y = [10, 30, 20, 40, 35]
+
+plt.plot(x, y, color='red', linewidth=2, linestyle='--', marker='o')
+plt.show()"
