@@ -1,0 +1,96 @@
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+print(df[df[""math""] >= 80])"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+print(df.loc[0:2])
+print(df.iloc[0:2])
+#loc은 마지막 숫자를 포함하고 iloc은 포함하지 않아서"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+print(df.loc[[2], [""name""]])
+print(df.loc[0:3, [""name"", ""kor""]])"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+print(df[[""name"", ""math""]])"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+print(df.shape)
+print(df.columns)
+print(df.dtypes)
+print(df.info())
+print(df.describe())"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+
+df = pd.DataFrame(data)
+print(df.head(3))
+print(df.tail(2))"
+"sales = pd.Series([120, 95, 140, 80, 110],
+index=[""Mon"", ""Tue"", ""Wed"", ""Thu"", ""Fri""])
+
+print(sales[sales >= 100])
+print(sales.sort_values(ascending=False))"
+"sales = pd.Series([120, 95, 140, 80, 110],
+index=[""Mon"", ""Tue"", ""Wed"", ""Thu"", ""Fri""])
+
+print(sales.sum())
+print(sales.mean())
+print(sales.median())
+print(sales.max())
+print(sales.min())
+print(sales.idxmax())
+print(sales.idxmin())"
+"sales = pd.Series([120, 95, 140, 80, 110],
+index=[""Mon"", ""Tue"", ""Wed"", ""Thu"", ""Fri""])
+
+print(sales + 20)
+print(sales * 2)"
+"sales = pd.Series([120, 95, 140, 80, 110],
+                index=[""Mon"", ""Tue"", ""Wed"", ""Thu"", ""Fri""])
+
+print(sales[""Wed""])
+print(sales.iloc[-1])"
+"data = [3, 7, 2, 9, 5]
+d = pd.Series(data)
+print(data)"
