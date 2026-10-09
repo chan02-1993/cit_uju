@@ -1,0 +1,111 @@
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, np.nan, 64, 80, 77, np.nan, 58],
+    ""eng"":   [92, np.nan, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, np.nan, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+print(df[df[""kor""].isna()][""name""])"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, np.nan, 64, 80, 77, np.nan, 58],
+    ""eng"":   [92, np.nan, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, np.nan, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+print(df.isna().sum())
+print(df.isna().sum().sum())"
+
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+df[""total""] = df[""kor""] + df[""eng""] + df[""math""]
+df[""avg""] = df[""total""] / 3
+
+print(df[[""kor"", ""eng"", ""math""]].mean())
+
+print(df[df[""avg""] > df[""avg""].mean()][[""name"", ""avg""]])
+
+print(df.groupby(""class"")[""total""].mean())
+a = df.groupby(""class"")[""total""].mean()
+print(a.idxmax())
+
+print(df.sort_values(by=""total"", ascending=False))
+
+df.loc[df[""name""] == ""Ben"", ""eng""] = np.nan
+print(df.isna().sum())
+
+df.to_csv()"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+plt.bar(df[""name""], df[""kor""])
+plt.bar(df[""name""], df[""eng""])
+plt.bar(df[""name""], df[""math""])
+plt.title(""Studnet Scores"")
+plt.ylim(0, 100)
+plt.show()"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+print(df.groupby(""class"")[""math""].mean())
+print(df.groupby(""class"")[[""math"", ""kor"", ""eng""]].mean())"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+print(df[""class""].value_counts())
+print(df[""class""].unique())"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+df[""total""] = df[""kor""] + df[""eng""] + df[""math""]
+
+df2 = df.sort_values(by=""total"", ascending=False)
+print(df2.head(3)[[""name"", ""total""]])"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""B"", ""A"", ""C"", ""B"", ""A"", ""C"", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58],
+    ""eng"":   [92, 68, 81, 70, 85, 74, 88, 62],
+    ""math"":  [79, 90, 84, 55, 73, 96, 67, 81]
+}
+df = pd.DataFrame(data)
+
+df[""total""] = df[""kor""] + df[""eng""] + df[""math""]
+df[""avg""] = df[""total""] / 3
+print(df.loc[df[""total""].idxmax(), ""name""])
+"
