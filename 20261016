@@ -1,0 +1,43 @@
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Gina"", ""Hank""],
+    ""class"": [""A"", ""b "", "" a"", ""C"", ""B"", ""a"", ""c "", ""B""],
+    ""kor"":   [88, 72, 95, 64, 80, 77, 91, 58]
+}
+df = pd.DataFrame(data)
+
+print(df[""class""].unique())
+df[""class""] = df[""class""].str.strip().str.upper()
+print(df.groupby(""class"")[""name""].size())
+print(df.groupby(""class"")[""kor""].mean())"
+"df[""height""] = df[""height""].str.replace(""cm"", """")
+df[""height""] = pd.to_numeric(df[""height""], errors=""coerce"").fillna(np.nan)
+print(df)
+print(df[""height""].mean())"
+"df[""price""] = df[""price""].str.replace(""원"", """")
+df[""price""] = df[""price""].astype(int)
+
+print(df)
+print(df[""price""].mean())
+"
+"prices = {
+    ""item"":  [""pen"", ""note"", ""bag"", ""cup""],
+    ""price"": [""1500"", ""3000"", ""12000"", ""800""]
+}
+df = pd.DataFrame(prices)
+
+print(df.sort_values(by=""price""))
+# 가격이 int가 아니라 str이라서
+df[""price""] = df[""price""].astype('int')
+print(df.sort_values(by=""price""))
+
+print(sum(df[""price""]))"
+"submit = {
+    ""name"":  [""Amy"", ""Ben"", ""Amy"", ""Cara"", ""Ben"", ""Dan""],
+    ""score"": [70, 85, 90, 60, 80, 75]
+}
+df = pd.DataFrame(submit)
+
+print(sum(df.duplicated()))
+print(sum(df.duplicated(subset=""name"")))
+df2 = df.drop_duplicates(subset=""name"", keep=""last"")
+print(df2.reset_index(drop=True))"
