@@ -1,0 +1,76 @@
+"data = {
+    ""name"":   [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn"", ""Ben"", ""Gina""],
+    ""gender"": [""F"", ""남"", ""F"", ""M"", ""여"", ""Male"", ""남"", ""F""],
+    ""kor"":    [""88"", ""72"", ""95"", ""64점"", ""80"", ""결시"", ""72"", ""91""],
+    ""math"":   [79, 90, 184, 55, 73, 96, 90, np.nan]
+}
+df = pd.DataFrame(data)
+
+df[""gender""] = df[""gender""].replace({""남"":""M"", ""여"":""F"", ""Male"":""M""})
+df[""kor""] = df[""kor""].str.replace(""점"", """")
+df[""kor""] = pd.to_numeric(df[""kor""], errors='coerce')
+df.loc[(df[""math""] > 100) | (df[""math""] < 0), ""math""] = np.nan
+df = df.drop_duplicates()
+df = df.reset_index(drop=True)
+print(df.isna().sum())
+df[""kor""] = df[""kor""].fillna(df[""kor""].mean())
+df[""math""] = df[""math""].fillna(df[""math""].mean())
+df[""avg""] = (df[""kor""] + df[""math""])/2
+print(df)
+
+print(df.groupby(""gender"")[""avg""].mean())
+print(df.loc[df['avg'].idxmax(), ""name""])"
+"sales = {
+    ""date"":     [""10-01"", ""10-01"", ""10-02"", ""10-02"", ""10-03"", ""10-03"", ""10-03"", ""10-04"", ""10-04""],
+    ""store"":    [""강남"", ""홍대"", ""강남"", "" 홍대"", ""강남"", ""홍대 "", ""홍대 "", ""강남"", ""홍대""],
+    ""visitors"": [""120"", ""95"", ""130"", ""88명"", ""-40"", ""102"", ""102"", ""집계중"", ""110""]
+}
+df = pd.DataFrame(sales)
+
+df[""store""] = df[""store""].str.strip()
+df[""visitors""] = df[""visitors""].str.replace(""명"", """")
+df[""visitors""] = pd.to_numeric(df[""visitors""], errors='coerce')
+df.loc[(df[""visitors""] < 0), ""visitors""] = np.nan
+df = df.drop_duplicates()
+df = df.reset_index(drop = True)
+print(df)
+print(df.isna().sum())
+a = df.groupby('store')[""visitors""].mean()
+print(a)"
+"data = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Ben"", ""Dan""],
+    ""class"": [""A"", ""B"", ""A"", "" b"", ""C""],
+    ""kor"":   [88, 72, 95, 72, 64]
+}
+df = pd.DataFrame(data)
+
+df = df.drop_duplicates()
+print(len(df))
+
+df[""class""] = df[""class""].str.upper()
+df[""class""] = df[""class""].str.strip()
+df = df.drop_duplicates()
+print(df)
+print(len(df))"
+"scores = {
+    ""name"":  [""Amy"", ""Ben"", ""Cara"", ""Dan"", ""Ella"", ""Finn""],
+    ""score"": [105, 88, -3, 92, 100, 76]
+}
+df = pd.DataFrame(scores)
+
+df[""score""] = df[""score""].clip(upper=100, lower=0)
+print(df)
+print(df[""score""].mean())
+
+# 원래 정상적인 범위의 점수가 아니었으므로 nan으로 바꾸는게 더 나은 것 같다"
+"weather = {
+    ""day"":  [1, 2, 3, 4, 5, 6, 7],
+    ""temp"": [21, 23, -99, 25, 240, 22, 24]
+}
+df = pd.DataFrame(weather)
+
+df.loc[(df[""temp""] > 50) | (df[""temp""] < -30), ""temp""] = np.nan
+
+print(df)
+
+print(df[""temp""].mean())"
