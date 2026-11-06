@@ -1,0 +1,46 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+df = pd.read_csv("Meteorite_Landings.csv")
+
+print(df.shape)   
+print(df.head()) 
+print(df.info())
+
+
+df = df[df["reclat"].notna()]
+
+print(df)
+
+df = df[df["mass (g)"].notna()]
+
+print(df)
+
+
+#num 미만질량운석 개수
+def func(num):
+    a=df[df["mass (g)"]<=num]["mass (g)"].count()
+    b=df["mass (g)"].count()
+    return a/b*100
+
+#a ~ b 사이의 운석 질량 합
+def getmasssum(a,b):
+    return df[(df["mass (g)"] < b) & (df["mass (g)"] >= a)]["mass (g)"].sum()
+
+
+"""
+1.
+a와 b에 대해 위도가 a이상 b미만인 구역의 운석 수
+
+2.
+a와 b에 대해 위도가 a이상 b미만인 구역의 운석질량 합
+"""
+
+
+
+
+
+
+
