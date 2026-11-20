@@ -1,0 +1,16 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+df = pd.read_csv("pbdb_data.csv")
+
+print(df.shape)
+print(df.head())
+print(df.info(verbose=True, show_counts=True))
+
+ #25   lng                    970454 non-null  float64
+ #26   lat                    970504 non-null  float64
+
+plt.scatter(df["lng"],df["lat"],s=0.5)
+plt.show()
